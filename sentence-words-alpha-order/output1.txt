@@ -1,0 +1,16 @@
+Введите предложение:
+Stars can't shine without darkness.
+Вы ввели следующее предложение:
+Stars can't shine without darkness.
+Слово №1: Stars
+Слово №2: can't
+Слово №3: shine
+Слово №4: without
+Слово №5: darkness.
+Количество слов = 5
+Все слова в алфавитном порядке:
+can't
+darkness.
+shine
+stars
+without

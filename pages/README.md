@@ -4,3 +4,7 @@
 
 <kbd>![Примеры](problem-statement-1.jpeg)</kbd>
 
+# Блок-схема
+
+<kbd>![Алгоритм решения задачи](flowchart.png)</kbd>
+

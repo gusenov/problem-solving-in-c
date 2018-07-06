@@ -21,9 +21,17 @@ int main() {
 	//  0 - страница отсутствует.
 	int pages[PAGES_MAX_CNT];
 	
+	int output[TEST_MAX_CNT][QUERY_MAX_CNT];  // выходные данные.
+	// Инициализация массива для выходных данных:
+	for (test = 0; test < TEST_MAX_CNT; ++test) {
+		for (query = 0; query < QUERY_MAX_CNT; ++query) {
+			output[test][query] = -1;
+		}
+	}
+	
 	scanf("%d", &t);  // прочитать количество тестов.
-	for (test = 1; test <= t; ++test) {
-		//printf("Test # %d\n", test);  // DEBUG.
+	for (test = 0; test < t; ++test) {
+		//printf("Test # %d\n", test + 1);  // DEBUG.
 
 		scanf("%d", &n);  // прочитать количество страниц.
 		scanf("%d", &q);  // прочитать количество запросов.
@@ -34,12 +42,12 @@ int main() {
 		}
 		
 		// Обработка запросов:
-		for (query = 1; query <= q; ++query) {
+		for (query = 0; query < q; ++query) {
 			do {  // считываем тип запроса:
 				scanf("%c", &queryType);
 			} while (queryType != '-' && queryType != '?');
 			
-			//printf("Query # %d: %c\n", query, queryType);  // DEBUG.
+			//printf("\tQuery # %d: %c\n", query + 1, queryType);  // DEBUG.
 			
 			if (queryType == '-') {  // вырывание страниц:
 				scanf("%d", &i);
@@ -58,10 +66,19 @@ int main() {
 					}
 					
 					if (!p) {
-						printf("%d\n", page + 1);
+						output[test][query] = page + 1;
 						break;
 					}
 				}
+			}
+		}
+	}
+	
+	// Вывод выходных данных:
+	for (test = 0; test < t; ++test) {
+		for (query = 0; query < QUERY_MAX_CNT; ++query) {
+			if (output[test][query] != -1) {
+				printf("%d\n", output[test][query]);
 			}
 		}
 	}
